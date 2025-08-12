@@ -3,14 +3,17 @@ const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 const themeIcon = themeToggle.querySelector('i');
 
-// Check for saved theme preference or default to light mode
-const currentTheme = localStorage.getItem('theme') || 'light';
+// Check for saved theme preference or default to dark mode
+const currentTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', currentTheme);
 
 // Update icon based on current theme
 if (currentTheme === 'dark') {
     themeIcon.classList.remove('fa-moon');
     themeIcon.classList.add('fa-sun');
+} else {
+    themeIcon.classList.remove('fa-sun');
+    themeIcon.classList.add('fa-moon');
 }
 
 themeToggle.addEventListener('click', () => {
