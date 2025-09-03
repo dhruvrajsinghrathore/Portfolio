@@ -314,3 +314,24 @@ const debouncedScrollHandler = debounce(() => {
 }, 10);
 
 window.addEventListener('scroll', debouncedScrollHandler);
+
+// Toggle Description Functionality
+function toggleDescription() {
+    const fullDescription = document.getElementById('hero-description-full');
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const showMoreText = document.getElementById('show-more-text');
+    const showMoreIcon = document.getElementById('show-more-icon');
+    
+    if (fullDescription.style.display === 'none') {
+        fullDescription.style.display = 'block';
+        showMoreText.textContent = 'Show Less';
+        showMoreIcon.classList.remove('fa-chevron-down');
+        showMoreIcon.classList.add('fa-chevron-up');
+        fullDescription.style.animation = 'fadeIn 0.3s ease-in-out';
+    } else {
+        fullDescription.style.display = 'none';
+        showMoreText.textContent = 'Show More';
+        showMoreIcon.classList.remove('fa-chevron-up');
+        showMoreIcon.classList.add('fa-chevron-down');
+    }
+}

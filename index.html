@@ -49,9 +49,23 @@
                 </div>
                 <div class="hero-text">
                     <h1 class="hero-title">Hi, I'm <span class="accent-text">Dhruvraj Singh Rathore</span></h1>
-                    <p class="hero-tagline">AI Engineer • Data Scientist • Data Engineer • Machine Learning Engineer • Data Analyst</p>
-                    <p class="hero-description">I’m Dhruvraj Singh Rathore, passionate about Data Science, AI, and building intelligent solutions that turn complex data into real-world impact. With hands-on experience in machine learning, NLP, LLMs, and scalable systems, I love creating innovative projects that push the boundaries of technology.
-                    </p>
+                    <p class="hero-tagline">AI Engineer • Data Scientist • Data Engineer • ML Engineer • Data Analyst</p>
+                    <div class="hero-description-container">
+                        <p class="hero-description hero-description-short">I am a Data Science graduate student at Texas A&M with experience spanning AI engineering, data engineering, and applied data science. My work focuses on building systems that are scalable, reliable, and directly support data-driven decision-making.</p>
+                        
+                        <div class="hero-description-full" id="hero-description-full" style="display: none;">
+                            <p>In AI engineering, I have designed multi-agent pipelines using CrewAI, LangGraph, MCP, and Docker to automate testing workflows and integrate seamlessly with CI/CD systems. I enjoy working on modern AI practices like embeddings, orchestration, and LLM-powered automation to create production-ready solutions.</p>
+                            
+                            <p>On the data engineering side, I have built large-scale ETL pipelines with Spark, orchestrated workflows using Apache Airflow, and designed schema models to power analytical reporting. I bring strong hands-on expertise with AWS (S3, Lambda, EC2, Glue) and experience optimizing SQL workflows while delivering insights through interactive dashboards in Power BI and Tableau.</p>
+                            
+                            <p>As a data scientist, I have applied machine learning to domains such as fintech, computer vision, and healthcare. My projects range from building regression models to predict customer payment dates to building deep learning models for cancer detection and satellite image segmentation. I enjoy the full cycle of model development from feature engineering and hyperparameter tuning to validation and deployment with a focus on delivering high-impact results.</p>
+                        </div>
+                        
+                        <button class="show-more-btn" id="show-more-btn" onclick="toggleDescription()">
+                            <span id="show-more-text">Show More</span>
+                            <i class="fas fa-chevron-down" id="show-more-icon"></i>
+                        </button>
+                    </div>
                     <div class="hero-buttons">
                         <a href="#experience" class="btn btn-primary">View My Work</a>
                         <a href="#contact" class="btn btn-secondary">Contact Me</a>
@@ -76,12 +90,13 @@
                     <div class="timeline-content">
                         <h3>AI Engineer Intern</h3>
                         <h4>TechSur Solutions, Reston, Virginia</h4>
-                        <p class="timeline-date">Jun 2025 – Present</p>
+                        <p class="timeline-date">2024 – Present</p>
                         <ul>
-                            <li>Engineered a multi-AI agent pipeline for testing automation with CrewAI, LangGraph, and MCP, leveraging LlamaIndex for embeddings with Chroma vector DB enabling fully automated unit test generation.</li>
-                            <li>Automated bug resolution by deploying AI agents that detected and fixed code and test failures against JIRA requirements, reducing manual debugging time by 30% and increasing code coverage by 40%.</li>
-                            <li>Configured scalable end-to-end UI testing with BDD Selenium in GitHub Actions, using AWS Lambda for parallel execution to cut test cycle times by 35%.</li>
-                            <li>Created a monitoring dashboard with AWS CloudWatch to track pipeline performance and error logs, boosting operational transparency and cutting issue resolution time by 20%.</li>
+                            <li>Created a Multi-AI agent pipeline with CrewAI and MCP that auto-generates unit tests using LlamaIndex + Chroma DB, cutting manual test development and execution effort by <strong>70%</strong>.</li>
+                            <li>Automated error resolution with AI agents that fixed code and test failures against JIRA requirements, cutting manual debugging time by <strong>30%</strong> and boosting code coverage by <strong>40%</strong>.</li>
+                            <li>Collaborated with QA Engineers and Architects to help in integrating test automation into the existing SDLC.</li>
+                            <li>Integrated the pipeline into an AI-powered IDE extension chatbot, containerized with Docker, enabling seamless automated testing against locally stored developer code.</li>
+                            <li>Engineered CI/CD pipelines with GitHub Actions to execute full end-to-end testing with BDD selenium, ensuring code reliability before PR merges, cutting release failures by <strong>50%</strong>.</li>
                         </ul>
                     </div>
                 </div>
@@ -90,12 +105,12 @@
                     <div class="timeline-content">
                         <h3>Data Analyst</h3>
                         <h4>Draup Business Solutions, Bangalore, India</h4>
-                        <p class="timeline-date">Dec 2022 – Jun 2024</p>
+                        <p class="timeline-date">2023 – 2024</p>
                         <ul>
-                            <li>Built scalable ETL pipelines using PySpark & SQL on AWS EMR for 50TB of transactional data, reducing data anomalies by 35% through schema validation and cutting processing time by 30% with optimized partitioning.</li>
-                            <li>Developed a data quality pipeline with Apache Airflow for 200M+ log records/day, automating validation with Great Expectations to reduce inconsistencies by 40% and manual intervention by 50%.</li>
-                            <li>Designed OLAP data models with snowflake schemas in Amazon Redshift for 20M+ job role and location records, improving query performance by 40%.</li>
-                            <li>Developed a serverless system with AWS Lambda to retrieve data from S3, using DynamoDB for metadata to support ad-hoc client requests, reducing response times by 30%.</li>
+                            <li>Built scalable PySpark ETL pipelines on AWS EMR to process <strong>50TB data</strong>, reducing anomalies by <strong>35%</strong> and runtime by <strong>30%</strong> via schema enforcement and optimized partitioning.</li>
+                            <li>Created a data health dashboard by validating <strong>200M+ workforce records/day</strong> via Airflow DAGs, improving data reliability and reducing QA escalations by <strong>50%</strong> through collaboration with analysts and consultants.</li>
+                            <li>Modeled OLAP schemas in Amazon Redshift (Snowflake design) for <strong>20M+ job-role/location records</strong> in talent cost, optimizing joins and aggregations to improve query speed by <strong>40%</strong>.</li>
+                            <li>Developed a serverless pipeline with AWS Lambda and DynamoDB to serve on-demand queries from S3, reducing client data delivery time by <strong>30%</strong> and supporting high concurrency.</li>
                         </ul>
                     </div>
                 </div>
@@ -104,11 +119,12 @@
                     <div class="timeline-content">
                         <h3>Data Scientist</h3>
                         <h4>HighRadius Corporation, Hyderabad, India</h4>
-                        <p class="timeline-date">Aug 2021 – Nov 2022</p>
+                        <p class="timeline-date">2022 – 2023</p>
                         <ul>
-                            <li>Transformed data gathering using SQL indexing and window functions for faster retrieval and aggregations, while leveraging lazy evaluation in Python to reduce memory usage, cutting processing time by 50%.</li>
-                            <li>Built machine learning models to predict customer payment dates using gradient boosting and regression techniques, achieving an accuracy of 75% and improving cash flow forecasting.</li>
-                            <li>Enhanced model performance using GridSearchCV for hyperparameter tuning, Ridge regularization to reduce overfitting, and Adam optimizer, boosting accuracy by 40%.</li>
+                            <li>Refined SQL/Snowflake workflows for AR data processing and reporting with indexing and window functions, reducing runtime and reporting delays by <strong>40%</strong>.</li>
+                            <li>Implemented a keyword matching algorithm in Python to automate the matching of claims to deductions resulting in a <strong>60%</strong> increase in net recovery rates.</li>
+                            <li>Built machine learning models to predict customer payment dates using gradient boosting and regression techniques, achieving an accuracy of <strong>75%</strong> and improving cash flow forecasting.</li>
+                            <li>Enhanced model performance using GridSearchCV for hyperparameter tuning, Ridge regularization to reduce overfitting, and Adam optimizer, boosting accuracy by <strong>40%</strong>.</li>
                         </ul>
                     </div>
                 </div>
