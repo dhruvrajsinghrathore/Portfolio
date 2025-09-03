@@ -3,38 +3,34 @@ const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 const themeIcon = themeToggle.querySelector('i');
 
-// Check for saved theme preference or default to dark mode
-const currentTheme = localStorage.getItem('theme') || 'dark';
-document.documentElement.setAttribute('data-theme', currentTheme);
+// Force dark mode always
+document.documentElement.setAttribute('data-theme', 'dark');
+localStorage.setItem('theme', 'dark');
 
-// Update icon based on current theme
-if (currentTheme === 'dark') {
-    themeIcon.classList.remove('fa-moon');
-    themeIcon.classList.add('fa-sun');
-} else {
-    themeIcon.classList.remove('fa-sun');
-    themeIcon.classList.add('fa-moon');
-}
+// Update icon for dark theme
+themeIcon.classList.remove('fa-moon');
+themeIcon.classList.add('fa-sun');
 
-themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Update icon
-    if (newTheme === 'dark') {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-    } else {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-    }
-    
-    // Update navbar immediately when theme changes
-    updateNavbarBackground();
-});
+// Theme toggle disabled - always stay in dark mode
+// themeToggle.addEventListener('click', () => {
+//     const currentTheme = document.documentElement.getAttribute('data-theme');
+//     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+//     
+//     document.documentElement.setAttribute('data-theme', newTheme);
+//     localStorage.setItem('theme', newTheme);
+//     
+//     // Update icon
+//     if (newTheme === 'dark') {
+//         themeIcon.classList.remove('fa-moon');
+//         themeIcon.classList.add('fa-sun');
+//     } else {
+//         themeIcon.classList.remove('fa-sun');
+//         themeIcon.classList.add('fa-moon');
+//     }
+//     
+//     // Update navbar immediately when theme changes
+//     updateNavbarBackground();
+// });
 
 // Mobile Menu Toggle
 const hamburger = document.getElementById('hamburger');
@@ -146,29 +142,117 @@ animateElements.forEach(element => {
     observer.observe(element);
 });
 
-// Typing effect for hero title (optional enhancement)
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
+// Enhanced typing effect for hero title
+function enhancedTypeWriter() {
+    const typewriterElement = document.querySelector('.typewriter');
+    const nameElement = document.querySelector('.name-highlight');
     
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
+    if (!typewriterElement || !nameElement) return;
+    
+    const fullText = "Hi, I'm Dhruvraj Singh Rathore";
+    
+    // Split the full text into parts for controlled line breaks
+    const greetingText = "Hi, I'm ";
+    const firstName = "Dhruvraj";
+    const middleName = "Singh";
+    const lastName = "Rathore";
+    
+    // Create spans for each letter with wave animation
+    const greetingSpans = greetingText.split('').map(letter => 
+        letter === ' ' ? ' ' : `<span class="name-letter">${letter}</span>`
+    ).join('');
+    const firstNameSpans = firstName.split('').map(letter => `<span class="name-letter">${letter}</span>`).join('');
+    const middleNameSpans = middleName.split('').map(letter => `<span class="name-letter">${letter}</span>`).join('');
+    const lastNameSpans = lastName.split('').map(letter => `<span class="name-letter">${letter}</span>`).join('');
+    
+    // Combine with controlled line break
+    const allLetters = `${greetingSpans}${firstNameSpans} ${middleNameSpans}<br/>${lastNameSpans}`;
+    
+    // Put everything in the name element (no separate typewriter element)
+    typewriterElement.style.display = 'none'; // Hide the typewriter element
+    nameElement.innerHTML = allLetters;
+    nameElement.style.opacity = '1';
+    
+    // Start the wave animation immediately
+    setTimeout(() => {
+        animateAllLetters();
+    }, 800);
+    
+    function animateAllLetters() {
+        const letters = nameElement.querySelectorAll('.name-letter');
+        letters.forEach((letter, index) => {
+            setTimeout(() => {
+                letter.classList.add('animate');
+            }, index * 80); // Stagger each letter by 80ms
+        });
     }
-    
-    type();
 }
 
-// Initialize typing effect on page load
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 50);
+// Particle System
+function createParticleSystem() {
+    const particlesContainer = document.getElementById('particles-container');
+    if (!particlesContainer) return;
+    
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random size between 2px and 6px
+        const size = Math.random() * 4 + 2;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        // Random starting position
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = '100%';
+        
+        // Random animation delay
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        
+        // Random horizontal drift
+        const drift = (Math.random() - 0.5) * 200;
+        particle.style.setProperty('--drift', drift + 'px');
+        
+        particlesContainer.appendChild(particle);
+        
+        // Remove particle after animation
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.parentNode.removeChild(particle);
+            }
+        }, 25000);
     }
+    
+    // Create initial particles
+    for (let i = 0; i < 15; i++) {
+        setTimeout(() => createParticle(), i * 1000);
+    }
+    
+    // Continue creating particles
+    setInterval(createParticle, 2000);
+}
+
+// Initialize enhanced animations on page load
+window.addEventListener('load', () => {
+    enhancedTypeWriter();
+    createParticleSystem();
+    
+    // Add stagger animation to other elements
+    setTimeout(() => {
+        const tagline = document.querySelector('.hero-tagline');
+        const description = document.querySelector('.hero-description-container');
+        const buttons = document.querySelector('.hero-buttons');
+        
+        if (tagline) {
+            tagline.style.animation = 'fadeInUp 0.6s ease-out 0.5s both';
+        }
+        if (description) {
+            description.style.animation = 'fadeInUp 0.6s ease-out 0.8s both';
+        }
+        if (buttons) {
+            buttons.style.animation = 'fadeInUp 0.6s ease-out 1.1s both';
+        }
+    }, 100);
 });
 
 // Scroll to top functionality
