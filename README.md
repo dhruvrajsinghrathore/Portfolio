@@ -122,7 +122,7 @@ NLP-powered research tool with FAISS + SciBERT for efficient paper retrieval and
 
 ## 📫 Let's Connect
 
-- **Email**: [dhruvraj16@tamu.edu](mailto:dhruvraj16@tamu.edu)
+- **Email**: [dhruvrajrathore2011@gmail.com](mailto:dhruvrajrathore2011@gmail.com)
 - **Phone**: (737) 206-1179
 - **LinkedIn**: [linkedin.com/in/dhruvrajsinghrathore](https://linkedin.com/in/dhruvrajsinghrathore)
 - **GitHub**: [github.com/dhruvrajsinghrathore](https://github.com/dhruvrajsinghrathore)
