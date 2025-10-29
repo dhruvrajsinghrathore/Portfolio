@@ -1531,6 +1531,38 @@ body {
     }
 }
 
+/* Resume Downloads in Contact Section */
+.resume-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.resume-heading {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    padding-top: 1rem;
+}
+
+.resume-downloads {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.resume-btn {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+    min-width: auto !important;
+}
+
+.resume-btn i {
+    font-size: 0.75rem !important;
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -1604,6 +1636,19 @@ body {
     
     .leadership-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .resume-section {
+        margin-top: 1.5rem;
+    }
+    
+    .resume-downloads {
+        gap: 0.8rem;
+    }
+    
+    .resume-btn {
+        font-size: 0.75rem !important;
+        padding: 5px 10px !important;
     }
     
     .timeline::before {
