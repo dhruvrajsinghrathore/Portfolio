@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run sync && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync": "node sync-files.js",
+    "sync:watch": "node watch-sync.js",
+    "prebuild": "npm run sync"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",

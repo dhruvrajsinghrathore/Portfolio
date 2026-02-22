@@ -10,7 +10,7 @@
     <!-- Force cache refresh -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=2024-12-19-final-update">
+  <link rel="stylesheet" crossorigin href="/assets/main-Dfkj2GPo.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -48,7 +48,7 @@
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-image">
-                    <img src="./public/images/image.png" alt="Dhruvraj Singh Rathore - Profile Photo" class="profile-photo">
+                    <img src="/assets/image-BQJx7EVK.png" alt="Dhruvraj Singh Rathore - Profile Photo" class="profile-photo">
                 </div>
                 <div class="hero-text">
                     <h1 class="hero-title" id="hero-title">
@@ -96,12 +96,12 @@
                     <div class="timeline-content">
                         <h3>AI Engineer Intern</h3>
                         <h4>TechSur Solutions, Reston, Virginia</h4>
-                        <p class="timeline-date">June 2025 – Present</p>
+                        <p class="timeline-date">June 2025 – December 2025</p>
                         <ul>
-                            <li>Developed an AI-driven code-generation pipeline using CrewAI and MCP that transforms user stories into full-stack applications with integrated testing and documentation, cutting development time by <strong>70%</strong>.</li>
-                            <li>Built self-correcting error fixing agents that diagnose compilation failures, make code corrections, and re-verify builds, boosting initial build success rate from <strong>30%</strong> to <strong>80%</strong>.</li>
-                            <li>Automated unit and functional test generation for Java microservices using the TestNG and Mockito frameworks, enabling <strong>90%</strong> code coverage and allowing faster developer feedback cycles.</li>
-                            <li>Created a FastAPI-driven automation layer integrating GitHub, JIRA, and Supabase to streamline AI-based code creation, review, and deployment, accelerating release cycles by <strong>40%</strong>.</li>
+                            <li>Built multi-agent LLM system using CrewAI and structured prompt engineering to generate full-stack code from Jira stories, including business logic, APIs, and UI components.</li>
+                            <li>Integrated safety guardrails with syntax validation, unit tests, and LLM review, achieving <strong>90%</strong> validation pass rate.</li>
+                            <li>Introduced LLM driven diagnostic pipeline in collaboration with backend and test engineers to analyze build failures and apply corrective fixes, improving success rate from <strong>50%</strong> to <strong>80%</strong>.</li>
+                            <li>Productionized the system as FastAPI microservices with GitHub Actions CI/CD, streamlining <strong>65%</strong> of development tasks for 10 developers and accelerating client PoC delivery.</li>
                         </ul>
                     </div>
                 </div>
@@ -112,10 +112,11 @@
                         <h4>Draup Business Solutions, Bangalore, India</h4>
                         <p class="timeline-date">December 2022 – June 2024</p>
                         <ul>
-                            <li>Built scalable ETL pipelines using Spark on AWS EMR/Glue to process <strong>50+ TB</strong> of structured and semi-structured S3 data, reducing processing time by <strong>30%</strong> through optimized partitioning and resource utilization.</li>
-                            <li>Streamlined daily validation for <strong>200M+</strong> records using Airflow DAGs, enabling a live data-quality dashboard that dropped QA escalations by <strong>50%</strong> and strengthened client confidence in data accuracy.</li>
-                            <li>Led the redesign of legacy Snowflake and Redshift data models, improving schema design and distribution strategies, reducing query runtime by <strong>40%</strong>.</li>
-                            <li>Collaborated with product and analytics teams to implement a serverless data pipeline using AWS Lambda, Athena, and DynamoDB for on-demand S3 queries, accelerating ad-hoc client data delivery time by <strong>50%</strong>.</li>
+                            <li>Reduced Spark ETL runtime by <strong>2 hours</strong> by optimizing partitioning and schema configuration across <strong>50+ TB</strong> S3 parquet data.</li>
+                            <li>Improved query execution time by <strong>40%</strong> by redesigning legacy Snowflake and Amazon Redshift analytical warehouse models using optimized clustering, distribution keys, and schema structure for reporting workloads.</li>
+                            <li>Improved MongoDB read throughput by A/B testing indexing and sharding strategies for production monitoring workloads.</li>
+                            <li>Collaborated with analytics teams to design and implement a serverless data pipeline using AWS Lambda and DynamoDB to support on-demand analytical queries on S3 data, reducing client data delivery time by <strong>50%</strong>.</li>
+                            <li>Led cross-functional data quality initiative by developing PySpark validation checks and orchestrating daily schema, null, and freshness tests in Airflow across <strong>200M+</strong> records, reducing QA escalations by <strong>70%</strong>.</li>
                         </ul>
                     </div>
                 </div>
@@ -143,10 +144,174 @@
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
+            
+            <!-- Project Filter Buttons -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">ALL</button>
+                <button class="filter-btn" data-filter="ai-engineering">AI Engineering</button>
+                <button class="filter-btn" data-filter="data-engineering">Data Engineering</button>
+                <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
+            </div>
+            
             <div class="projects-grid">
-                <div class="project-card">
+                <!-- 1. TravelGenie -->
+                <div class="project-card" data-category="ai-engineering">
                     <div class="project-image">
-                        <img src="https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="HR Smart Screener">
+                        <img src="images/travelgenie.png" alt="TravelGenie">
+                    </div>
+                    <div class="project-content">
+                        <h3>TravelGenie</h3>
+                        <p>AI-powered travel planner that automatically creates affordable travel plans by fetching real-time flight, hotel, and attraction data. It uses smart search and AI to recommend best itinerary for a user's budget and preferences.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">BERT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dhruvrajsinghrathore/TravelGenie" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Real-Time IoT Analytics Platform with LLM Query Interface -->
+                <div class="project-card" data-category="ai-engineering">
+                    <div class="project-image">
+                        <img src="images/IOT_monitoring.png" alt="Real-Time IoT Analytics Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3>Real-Time IoT Analytics Platform with LLM Query Interface</h3>
+                        <p>Live dashboard that monitors IoT sensor data in real time. Users can ask questions in plain English, and system converts them into database queries to instantly analyze over a million sensor readings.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">MCP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dhruvrajsinghrathore/MQTT-Monitoring-System" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. AI System for Employee Policy Violation Detection -->
+                <div class="project-card" data-category="ai-engineering">
+                    <div class="project-image">
+                        <img src="images/ai-policy-detection.png" alt="AI Policy Violation Detection">
+                    </div>
+                    <div class="project-content">
+                        <h3>AI System for Employee Policy Violation Detection</h3>
+                        <p>AI system that automatically reviews employee cases and detects possible policy violations. It reduces manual HR work by analyzing company, state and federal level policy documents and classifying violations with high accuracy.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">FAISS</span>
+                            <span class="tech-tag">LoRA</span>
+                            <span class="tech-tag">LLM Fine-tuning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/adarsh-k-tiwari/ai-workplace-investigation-tool" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Scalable Analytics Lakehouse with Spark -->
+                <div class="project-card" data-category="data-engineering">
+                    <div class="project-image">
+                        <img src="images/analytics_lakehouse.png" alt="Scalable Analytics Lakehouse with Spark">
+                    </div>
+                    <div class="project-content">
+                        <h3>Scalable Analytics Lakehouse with Spark</h3>
+                        <p>Built a scalable lakehouse using Spark and Delta Lake with a medallion architecture to separate ingestion, transformation, and analytics layers. Optimized performance through materialized aggregates and Airflow and Kubernetes orchestration, reducing query latency by 85% and accelerating business reporting.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Apache Spark</span>
+                            <span class="tech-tag">Delta Lake</span>
+                            <span class="tech-tag">Airflow</span>
+                            <span class="tech-tag">Kubernetes</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dhruvrajsinghrathore/user-activity-data-lake" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Real-Time Website Behavior Analytics -->
+                <div class="project-card" data-category="data-engineering">
+                    <div class="project-image">
+                        <img src="images/website_analytics.png" alt="Real-Time Website Behavior Analytics">
+                    </div>
+                    <div class="project-content">
+                        <h3>Real-Time Website Behavior Analytics</h3>
+                        <p>Built real time analytics system that ingests clickstream events through a Kafka based streaming pipeline and processes them with minute level aggregations. Implemented anomaly detection to identify suspicious or fraudulent user behavior automatically, and deployed the full system using Docker across multiple integrated services for scalable, production ready monitoring.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">MinIO</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dhruvrajsinghrathore/kafka-realtime-streaming-pipeline" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Order Analytics Pipeline -->
+                <div class="project-card" data-category="data-engineering">
+                    <div class="project-image">
+                        <img src="images/order_analytics.png" alt="Order Analytics Pipeline">
+                    </div>
+                    <div class="project-content">
+                        <h3>Order Analytics Pipeline</h3>
+                        <p>Designed an automated order analytics pipeline using DBT, Snowflake, and Airflow to convert raw transactional data into analytics ready datasets. Added validation tests, Docker based deployment, and Git automation to ensure reliable, scalable, and consistent reporting.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">DBT</span>
+                            <span class="tech-tag">Snowflake</span>
+                            <span class="tech-tag">Airflow</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dhruvrajsinghrathore/ETL_Pipeline_DBT_SnowFlake_Airflow.git" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Cotton Field Detector -->
+                <div class="project-card" data-category="machine-learning">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Cotton Field Detector">
+                    </div>
+                    <div class="project-content">
+                        <h3>Cotton Field Detector</h3>
+                        <p>Developed a U-Net deep learning model in PyTorch to detect cotton fields from satellite images with 92% IoU. Achieved 88% segmentation accuracy, automating crop area estimation and reducing manual inspections by 50%.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Deep Learning</span>
+                            <span class="tech-tag">U-NET</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dhruvrajsinghrathore/Cotton-Field-Detector.git" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. HR Smart Screener -->
+                <div class="project-card" data-category="ai-engineering">
+                    <div class="project-image">
+                        <img src="images/HR_smart_screener.png" alt="HR Smart Screener">
                     </div>
                     <div class="project-content">
                         <h3>HR Smart Screener</h3>
@@ -165,49 +330,8 @@
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="TravelGenie">
-                    </div>
-                    <div class="project-content">
-                        <h3>TravelGenie</h3>
-                        <p>Automated itinerary planner using REST APIs and LLMs to generate budget-friendly travel plans with real-time flight, hotel, and attraction data, ranked via BM25 + embeddings, and RAG-generated itineraries.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">REST APIs</span>
-                            <span class="tech-tag">RAG</span>
-                            <span class="tech-tag">BERT</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/abhi-singh07/TravelGenie.git" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Order Analytics Pipeline">
-                    </div>
-                    <div class="project-content">
-                        <h3>Order Analytics Pipeline</h3>
-                        <p>Designed and deployed a fully automated order analytics pipeline leveraging DBT, Snowflake, and Airflow to convert raw transactional data into reliable insights. Integrated validation tests, Docker-based deployment, and Git-driven automation for scalable analytics.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">DBT</span>
-                            <span class="tech-tag">Snowflake</span>
-                            <span class="tech-tag">Airflow</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/dhruvrajsinghrathore/ETL_Pipeline_DBT_SnowFlake_Airflow.git" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
+                <!-- 9. Personalized Academic Research Assistant -->
+                <div class="project-card" data-category="ai-engineering">
                     <div class="project-image">
                         <img src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Personalized Academic Research Assistant">
                     </div>
@@ -228,28 +352,8 @@
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.pexels.com/photos/544966/pexels-photo-544966.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Metro Interstate Traffic Volume">
-                    </div>
-                    <div class="project-content">
-                        <h3>Metro Interstate Traffic Volume</h3>
-                        <p>Developed a traffic congestion prediction model using scikit-learn, feature scaling, and time-series analysis. Evaluated Random Forest, Lasso, Ridge, and Polynomial Regression, improving traffic volume prediction accuracy by 30%.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Statistical Techniques</span>
-                            <span class="tech-tag">Scikit-learn</span>
-                            <span class="tech-tag">Time Series</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/dhruvrajsinghrathore/Metro-Interstate-Traffic-Volume-.git" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
+                <!-- 10. Metastatic Cancer Detection -->
+                <div class="project-card" data-category="machine-learning">
                     <div class="project-image">
                         <img src="https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Metastatic Cancer Detection">
                     </div>
@@ -270,21 +374,22 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <!-- 11. Metro Interstate Traffic Volume -->
+                <div class="project-card" data-category="machine-learning">
                     <div class="project-image">
-                        <img src="https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Cotton Field Detector">
+                        <img src="https://images.pexels.com/photos/544966/pexels-photo-544966.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Metro Interstate Traffic Volume">
                     </div>
                     <div class="project-content">
-                        <h3>Cotton Field Detector</h3>
-                        <p>Developed a U-Net deep learning model in PyTorch to detect cotton fields from satellite images with 92% IoU. Achieved 88% segmentation accuracy, automating crop area estimation and reducing manual inspections by 50%.</p>
+                        <h3>Metro Interstate Traffic Volume</h3>
+                        <p>Developed a traffic congestion prediction model using scikit-learn, feature scaling, and time-series analysis. Evaluated Random Forest, Lasso, Ridge, and Polynomial Regression, improving traffic volume prediction accuracy by 30%.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Deep Learning</span>
-                            <span class="tech-tag">U-NET</span>
-                            <span class="tech-tag">PyTorch</span>
-                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Statistical Techniques</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Time Series</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/dhruvrajsinghrathore/Cotton-Field-Detector.git" target="_blank" class="project-link">
+                            <a href="https://github.com/dhruvrajsinghrathore/Metro-Interstate-Traffic-Volume-.git" target="_blank" class="project-link">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
@@ -711,11 +816,11 @@
                 <!-- Resume Downloads -->
                 <div class="resume-section">
                     <div class="resume-downloads">
-                        <a href="./certificates/Resume/AI_Engineer/Dhruvraj_resume.pdf" class="contact-link resume-btn" target="_blank" download="dhruvraj_resume_ai_engineer.pdf">
+                        <a href="./certificates/Resume/AI_Engineer/Dhruvraj_Resume_AI_Engineer.pdf" class="contact-link resume-btn" target="_blank" download="dhruvraj_resume_ai_engineer.pdf">
                             <i class="fas fa-robot"></i>
                             AI Engineer Resume
                         </a>
-                        <a href="./certificates/Resume/Data_Engineer/Dhruvraj_resume.pdf" class="contact-link resume-btn" target="_blank" download="dhruvraj_resume_data_engineer.pdf">
+                        <a href="./certificates/Resume/Data_Engineer/Dhruvraj_Resume_Data_Engineer.pdf" class="contact-link resume-btn" target="_blank" download="dhruvraj_resume_data_engineer.pdf">
                             <i class="fas fa-database"></i>
                             Data Engineer Resume
                         </a>
@@ -749,6 +854,6 @@
         </div>
     </footer>
 
-    <script src="./script.js?v=2024-12-19-final-update"></script>
+    <script src="./script.js?v=1761749030"></script>
 </body>
 </html>

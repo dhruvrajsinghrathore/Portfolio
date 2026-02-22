@@ -165,8 +165,8 @@ function enhancedTypeWriter() {
     const middleNameSpans = middleName.split('').map(letter => `<span class="name-letter">${letter}</span>`).join('');
     const lastNameSpans = lastName.split('').map(letter => `<span class="name-letter">${letter}</span>`).join('');
     
-    // Combine with controlled line break
-    const allLetters = `${greetingSpans}${firstNameSpans} ${middleNameSpans}<br/>${lastNameSpans}`;
+    // Combine without line break to keep name on one line
+    const allLetters = `${greetingSpans}${firstNameSpans} ${middleNameSpans} ${lastNameSpans}`;
     
     // Put everything in the name element (no separate typewriter element)
     typewriterElement.style.display = 'none'; // Hide the typewriter element
@@ -176,14 +176,14 @@ function enhancedTypeWriter() {
     // Start the wave animation immediately
     setTimeout(() => {
         animateAllLetters();
-    }, 800);
+    }, 200);
     
     function animateAllLetters() {
         const letters = nameElement.querySelectorAll('.name-letter');
         letters.forEach((letter, index) => {
             setTimeout(() => {
                 letter.classList.add('animate');
-            }, index * 80); // Stagger each letter by 80ms
+            }, index * 30); // Stagger each letter by 30ms (much faster)
         });
     }
 }
@@ -398,6 +398,36 @@ const debouncedScrollHandler = debounce(() => {
 }, 10);
 
 window.addEventListener('scroll', debouncedScrollHandler);
+
+// Project Filter Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            projectCards.forEach(card => {
+                if (filter === 'all') {
+                    card.classList.remove('hidden');
+                } else {
+                    const category = card.getAttribute('data-category');
+                    if (category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    });
+});
 
 // Toggle Description Functionality
 function toggleDescription() {
