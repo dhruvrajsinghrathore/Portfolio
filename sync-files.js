@@ -24,6 +24,11 @@ const dirsToSync = [
   'certificates/Resume/Data_Scientist'
 ];
 
+// Also sync images to root for GitHub Pages
+const rootLevelSync = [
+  'images'
+];
+
 const rootDir = __dirname;
 const publicDir = path.join(rootDir, 'public');
 
@@ -58,13 +63,13 @@ dirsToSync.forEach(dir => {
   // Handle nested Resume directories
   if (dir.startsWith('certificates/Resume/')) {
     sourcePath = path.join(rootDir, dir);
-    targetPath = path.join(rootDir, 'public', dir);
+    targetPath = path.join(publicDir, dir);
   } else if (dir === 'certificates') {
     sourcePath = path.join(rootDir, dir);
-    targetPath = path.join(rootDir, 'public', dir);
+    targetPath = path.join(publicDir, dir);
   } else {
     sourcePath = path.join(rootDir, path.basename(dir));
-    targetPath = path.join(rootDir, dir);
+    targetPath = path.join(publicDir, dir);
   }
   
   if (fs.existsSync(sourcePath)) {
@@ -82,6 +87,33 @@ dirsToSync.forEach(dir => {
       if (fs.statSync(srcFile).isFile()) {
         fs.copyFileSync(srcFile, tgtFile);
         console.log(`✅ Synced: ${dir.replace(rootDir + '/', '')}/${file}`);
+      }
+    });
+  } else {
+    console.log(`⚠️  Source directory not found: ${sourcePath}`);
+  }
+});
+
+// Sync images to root level for GitHub Pages
+rootLevelSync.forEach(dir => {
+  const sourcePath = path.join(publicDir, dir);
+  const targetPath = path.join(rootDir, dir);
+  
+  if (fs.existsSync(sourcePath)) {
+    // Ensure target directory exists
+    if (!fs.existsSync(targetPath)) {
+      fs.mkdirSync(targetPath, { recursive: true });
+    }
+    
+    // Copy directory contents
+    const files = fs.readdirSync(sourcePath);
+    files.forEach(file => {
+      const srcFile = path.join(sourcePath, file);
+      const tgtFile = path.join(targetPath, file);
+      
+      if (fs.statSync(srcFile).isFile()) {
+        fs.copyFileSync(srcFile, tgtFile);
+        console.log(`✅ Root synced: ${dir}/${file}`);
       }
     });
   } else {
